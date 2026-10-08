@@ -1,1177 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bethany Adams Interiors | Louisville, Kentucky Interior Design</title>
-  <meta name="description" content="Nationally recognized full-service interior design studio in Louisville, Kentucky. Architectural sensitivity, bespoke renovations, and turnkey residential design.">
-
-  <!-- Google Fonts: Cormorant Garamond & Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    /* -------------------------------------------------------------
-       DESIGN SYSTEM & CSS VARIABLES
-       Palette: #1f1d1a | #f4f4f6 | #2e3b4e | #e5e7ea | #9e3a26
-       Typography: Cormorant Garamond (Headings) + Inter (Body)
-    ------------------------------------------------------------- */
-    :root {
-      --color-text: #1f1d1a;
-      --color-text-muted: #5e5a55;
-      --color-bg: #f4f4f6;
-      --color-surface: #ffffff;
-      --color-primary: #2e3b4e;
-      --color-primary-hover: #1e2836;
-      --color-secondary: #e5e7ea;
-      --color-secondary-subtle: #eeeff1;
-      --color-accent: #9e3a26;
-      --color-accent-hover: #822e1d;
-      --color-border: #e2e4e8;
-
-      --font-heading: 'Cormorant Garamond', Garamond, Georgia, serif;
-      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
-      --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
-      --shadow-subtle: 0 4px 20px -2px rgba(31, 29, 26, 0.05);
-      --shadow-elevated: 0 12px 32px -4px rgba(46, 59, 78, 0.08);
-      --radius-sm: 4px;
-      --radius-md: 8px;
-      --radius-lg: 16px;
-      --radius-full: 9999px;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      background-color: var(--color-bg);
-      color: var(--color-text);
-      font-family: var(--font-body);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      background-color: var(--color-bg);
-      color: var(--color-text);
-      line-height: 1.6;
-      font-weight: 300;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: color 0.25s ease, border-color 0.25s ease;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    button {
-      font-family: inherit;
-      cursor: pointer;
-      border: none;
-      background: none;
-    }
-
-    /* -------------------------------------------------------------
-       TOP ANNOUNCEMENT BAR
-    ------------------------------------------------------------- */
-    .top-bar {
-      background-color: var(--color-primary);
-      color: #f4f4f6;
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.5rem 1.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .top-bar-left, .top-bar-right {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .top-bar-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      background-color: rgba(255, 255, 255, 0.12);
-      padding: 0.2rem 0.6rem;
-      border-radius: var(--radius-full);
-      font-size: 0.7rem;
-    }
-
-    .top-bar-pill::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: #4ade80;
-    }
-
-    .top-bar a:hover {
-      color: var(--color-secondary);
-      text-decoration: underline;
-    }
-
-    @media (max-width: 860px) {
-      .top-bar-left {
-        display: none;
-      }
-      .top-bar {
-        justify-content: center;
-        text-align: center;
-      }
-    }
-
-    /* -------------------------------------------------------------
-       NAVIGATION BAR
-    ------------------------------------------------------------- */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(244, 244, 246, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--color-secondary);
-      transition: all 0.3s ease;
-    }
-
-    .site-header.scrolled {
-      background: rgba(244, 244, 246, 0.98);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-    }
-
-    .nav-container {
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 1.1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-
-    .brand-logo {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      user-select: none;
-    }
-
-    .brand-title {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      line-height: 1.1;
-      text-transform: uppercase;
-      color: var(--color-text);
-    }
-
-    .brand-sub {
-      font-family: var(--font-body);
-      font-size: 0.65rem;
-      font-weight: 400;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--color-text-muted);
-      margin-top: 0.15rem;
-    }
-
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      list-style: none;
-      gap: 2.2rem;
-    }
-
-    .nav-link {
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--color-text);
-      position: relative;
-      padding: 0.3rem 0;
-      transition: color 0.25s ease;
-    }
-
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 1.5px;
-      background-color: var(--color-accent);
-      transition: width 0.3s var(--transition-smooth);
-    }
-
-    .nav-link:hover {
-      color: var(--color-accent);
-    }
-
-    .nav-link:hover::after,
-    .nav-link.active::after {
-      width: 100%;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-    }
-
-    .btn-inquiry {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background-color: var(--color-primary);
-      color: #ffffff;
-      font-family: var(--font-body);
-      font-size: 0.8125rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.75rem 1.4rem;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--color-primary);
-      transition: all 0.3s var(--transition-smooth);
-      white-space: nowrap;
-    }
-
-    .btn-inquiry:hover {
-      background-color: var(--color-accent);
-      border-color: var(--color-accent);
-      color: #ffffff;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(158, 58, 38, 0.25);
-    }
-
-    /* Mobile Menu Toggle */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 44px;
-      height: 44px;
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      z-index: 1001;
-    }
-
-    .menu-toggle span {
-      width: 24px;
-      height: 2px;
-      background-color: var(--color-text);
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .menu-toggle span + span {
-      margin-top: 5px;
-    }
-
-    .menu-toggle.active span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-    /* Mobile Drawer */
-    .mobile-drawer {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      max-width: 360px;
-      background-color: #ffffff;
-      box-shadow: -4px 0 30px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      transform: translateX(100%);
-      transition: transform 0.4s var(--transition-smooth);
-      display: flex;
-      flex-direction: column;
-      padding: 6rem 2rem 2.5rem;
-      overflow-y: auto;
-    }
-
-    .mobile-drawer.open {
-      transform: translateX(0);
-    }
-
-    .mobile-drawer-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(31, 29, 26, 0.4);
-      backdrop-filter: blur(4px);
-      z-index: 999;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .mobile-drawer-overlay.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .mobile-nav-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .mobile-nav-link {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: var(--color-text);
-      display: block;
-      transition: color 0.2s ease, transform 0.2s ease;
-    }
-
-    .mobile-nav-link:hover {
-      color: var(--color-accent);
-      transform: translateX(4px);
-    }
-
-    .mobile-drawer-footer {
-      margin-top: auto;
-      border-top: 1px solid var(--color-secondary);
-      padding-top: 1.5rem;
-      font-size: 0.85rem;
-      color: var(--color-text-muted);
-    }
-
-    .mobile-drawer-footer p {
-      margin-bottom: 0.5rem;
-    }
-
-    /* -------------------------------------------------------------
-       HERO SECTION
-       Layout:
-       Left side: 2 infinite vertical animated photo columns
-       Right side: Title, Subtitle, "View Our Services" CTA
-    ------------------------------------------------------------- */
-    .hero-section {
-      position: relative;
-      overflow: hidden;
-      padding: 2.5rem 2rem 4rem;
-      min-height: calc(100vh - 120px);
-      display: flex;
-      align-items: center;
-    }
-
-    .hero-container {
-      max-width: 1440px;
-      margin: 0 auto;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      gap: 3.5rem;
-      align-items: center;
-    }
-
-    /* -------------------------------------------------------------
-       HERO LEFT: VERTICAL INFINITE SLIDERS
-    ------------------------------------------------------------- */
-    .hero-gallery-wrapper {
-      position: relative;
-      height: 580px;
-      display: flex;
-      gap: 1.25rem;
-      overflow: hidden;
-      border-radius: var(--radius-lg);
-      padding: 0.5rem;
-      background: linear-gradient(135deg, rgba(229, 231, 234, 0.4) 0%, rgba(244, 244, 246, 0.7) 100%);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6), var(--shadow-subtle);
-    }
-
-    /* Architectural gradient masks */
-    .hero-gallery-wrapper::before,
-    .hero-gallery-wrapper::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 70px;
-      z-index: 10;
-      pointer-events: none;
-    }
-
-    .hero-gallery-wrapper::before {
-      top: 0;
-      background: linear-gradient(to bottom, var(--color-bg) 15%, rgba(244, 244, 246, 0) 100%);
-    }
-
-    .hero-gallery-wrapper::after {
-      bottom: 0;
-      background: linear-gradient(to top, var(--color-bg) 15%, rgba(244, 244, 246, 0) 100%);
-    }
-
-    .slider-column {
-      flex: 1;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .slider-track {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      will-change: transform;
-    }
-
-    /* Column 1 scrolls UP */
-    .slider-track-up {
-      animation: infiniteScrollUp 32s linear infinite;
-    }
-
-    /* Column 2 scrolls DOWN (reverse) */
-    .slider-track-down {
-      animation: infiniteScrollDown 36s linear infinite;
-    }
-
-    .hero-gallery-wrapper:hover .slider-track {
-      animation-play-state: paused;
-    }
-
-    @keyframes infiniteScrollUp {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-50%); }
-    }
-
-    @keyframes infiniteScrollDown {
-      0% { transform: translateY(-50%); }
-      100% { transform: translateY(0); }
-    }
-
-    .gallery-card {
-      position: relative;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      background-color: var(--color-secondary);
-      box-shadow: 0 4px 14px rgba(31, 29, 26, 0.08);
-      flex-shrink: 0;
-      cursor: pointer;
-      transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s var(--transition-smooth);
-    }
-
-    .gallery-card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 8px 24px rgba(46, 59, 78, 0.16);
-      z-index: 5;
-    }
-
-    .gallery-card img {
-      width: 100%;
-      height: 270px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.6s ease;
-    }
-
-    .gallery-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .gallery-card-badge {
-      position: absolute;
-      bottom: 0.75rem;
-      left: 0.75rem;
-      right: 0.75rem;
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      padding: 0.4rem 0.65rem;
-      border-radius: var(--radius-sm);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.675rem;
-      letter-spacing: 0.04em;
-      color: var(--color-text);
-      font-weight: 500;
-      pointer-events: none;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    }
-
-    .gallery-card-badge span.location {
-      color: var(--color-accent);
-      font-weight: 600;
-      text-transform: uppercase;
-      font-size: 0.6rem;
-      letter-spacing: 0.08em;
-    }
-
-    /* -------------------------------------------------------------
-       HERO RIGHT: HEADLINE, SUBHEAD & CTAS (INVIEW MOTION)
-    ------------------------------------------------------------- */
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding-left: 0.5rem;
-    }
-
-    /* In-view animation primitives */
-    .in-view-element {
-      opacity: 0;
-      transform: translateY(40px);
-      filter: blur(4px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                  filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .in-view-element.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-      filter: blur(0px);
-    }
-
-    .delay-1 { transition-delay: 0.1s; }
-    .delay-2 { transition-delay: 0.22s; }
-    .delay-3 { transition-delay: 0.35s; }
-    .delay-4 { transition-delay: 0.48s; }
-    .delay-5 { transition-delay: 0.6s; }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      margin-bottom: 1.25rem;
-      padding: 0.35rem 0.85rem;
-      background-color: rgba(158, 58, 38, 0.08);
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(158, 58, 38, 0.15);
-    }
-
-    .hero-eyebrow svg {
-      width: 14px;
-      height: 14px;
-      fill: currentColor;
-    }
-
-    .hero-headline {
-      font-family: var(--font-heading);
-      font-size: clamp(2.5rem, 4.2vw, 4rem);
-      font-weight: 400;
-      line-height: 1.12;
-      color: var(--color-text);
-      letter-spacing: -0.01em;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-headline em {
-      font-style: italic;
-      font-weight: 400;
-      color: var(--color-primary);
-    }
-
-    .hero-headline .highlight-accent {
-      color: var(--color-accent);
-      font-style: normal;
-    }
-
-    .hero-subhead {
-      font-family: var(--font-body);
-      font-size: 1.0625rem;
-      line-height: 1.7;
-      color: var(--color-text-muted);
-      max-width: 540px;
-      margin-bottom: 2rem;
-      font-weight: 300;
-    }
-
-    .hero-subhead strong {
-      color: var(--color-text);
-      font-weight: 400;
-    }
-
-    .hero-trust-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      width: 100%;
-      max-width: 520px;
-      padding: 1.25rem 0;
-      margin-bottom: 2.25rem;
-      border-top: 1px solid var(--color-secondary);
-      border-bottom: 1px solid var(--color-secondary);
-    }
-
-    .trust-item {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .trust-number {
-      font-family: var(--font-heading);
-      font-size: 1.35rem;
-      font-weight: 500;
-      color: var(--color-primary);
-      line-height: 1.2;
-    }
-
-    .trust-label {
-      font-size: 0.725rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--color-text-muted);
-      margin-top: 0.2rem;
-    }
-
-    .hero-cta-group {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary-cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      background-color: var(--color-primary);
-      color: #ffffff;
-      font-family: var(--font-body);
-      font-size: 0.9375rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 1rem 2rem;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--color-primary);
-      box-shadow: 0 4px 14px rgba(46, 59, 78, 0.15);
-      transition: all 0.3s var(--transition-smooth);
-    }
-
-    .btn-primary-cta svg {
-      width: 16px;
-      height: 16px;
-      transition: transform 0.3s ease;
-    }
-
-    .btn-primary-cta:hover {
-      background-color: var(--color-accent);
-      border-color: var(--color-accent);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(158, 58, 38, 0.28);
-    }
-
-    .btn-primary-cta:hover svg {
-      transform: translateX(4px);
-    }
-
-    .btn-secondary-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background-color: transparent;
-      color: var(--color-text);
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 1rem 1.5rem;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--color-border);
-      transition: all 0.3s ease;
-    }
-
-    .btn-secondary-cta:hover {
-      background-color: var(--color-secondary);
-      border-color: var(--color-secondary);
-      color: var(--color-primary);
-    }
-
-    .studio-location-marker {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-top: 2rem;
-      font-size: 0.8125rem;
-      color: var(--color-text-muted);
-    }
-
-    .studio-location-marker svg {
-      width: 15px;
-      height: 15px;
-      color: var(--color-accent);
-      flex-shrink: 0;
-    }
-
-    /* -------------------------------------------------------------
-       RESPONSIVE ADAPTATIONS
-    ------------------------------------------------------------- */
-    @media (max-width: 1080px) {
-      .hero-container {
-        grid-template-columns: 1fr;
-        gap: 3.5rem;
-      }
-      .hero-gallery-wrapper {
-        height: 480px;
-        order: 2;
-      }
-      .hero-content {
-        order: 1;
-        padding-left: 0;
-      }
-      .nav-menu {
-        gap: 1.4rem;
-      }
-    }
-
-    @media (max-width: 960px) {
-      .nav-menu, .nav-actions .btn-inquiry {
-        display: none;
-      }
-      .menu-toggle {
-        display: flex;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero-section {
-        padding: 1.5rem 1.25rem 3rem;
-      }
-      .hero-headline {
-        font-size: 2.25rem;
-      }
-      .hero-gallery-wrapper {
-        height: 380px;
-      }
-      .gallery-card img {
-        height: 200px;
-      }
-      .hero-trust-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-      }
-      .hero-cta-group {
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .btn-primary-cta, .btn-secondary-cta {
-        width: 100%;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .slider-track {
-        animation: none !important;
-      }
-      .in-view-element {
-        opacity: 1 !important;
-        transform: none !important;
-        filter: none !important;
-        transition: none !important;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Announcement Bar -->
-  <aside class="top-bar" aria-label="Announcement">
-    <div class="top-bar-left">
-      <span class="top-bar-pill">Available for 2026/2027 Commissions</span>
-      <span>Louisville, KY Studio & Nationwide Travel</span>
-    </div>
-    <div class="top-bar-right">
-      <span>Identifies as Women-Owned</span>
-      <a href="tel:+15024094224" aria-label="Call +1 502-409-4224">+1 (502) 409-4224</a>
-    </div>
-  </aside>
-
-  <!-- Navigation Header -->
-  <header class="site-header" id="siteHeader" role="banner">
-    <div class="nav-container">
-      <a href="#home" class="brand-logo" aria-label="Bethany Adams Interiors Homepage">
-        <span class="brand-title">Bethany Adams</span>
-        <span class="brand-sub">Interiors &bull; Louisville</span>
-      </a>
-
-      <nav aria-label="Primary Navigation">
-        <ul class="nav-menu" id="desktopNav">
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-          <li><a href="#services" class="nav-link">Services</a></li>
-          <li><a href="#press" class="nav-link">Press</a></li>
-          <li><a href="#blog" class="nav-link">Blog</a></li>
-          <li><a href="#faqs" class="nav-link">FAQs</a></li>
-        </ul>
-      </nav>
-
-      <div class="nav-actions">
-        <a href="#inquiries" class="btn-inquiry" id="navInquiryBtn">
-          <span>Project Inquiries</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </a>
-
-        <button class="menu-toggle" id="menuToggle" aria-label="Open mobile navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Mobile Drawer -->
-  <div class="mobile-drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
-  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation" aria-hidden="true">
-    <ul class="mobile-nav-list">
-      <li><a href="#about" class="mobile-nav-link">About</a></li>
-      <li><a href="#portfolio" class="mobile-nav-link">Portfolio</a></li>
-      <li><a href="#services" class="mobile-nav-link">Services</a></li>
-      <li><a href="#press" class="mobile-nav-link">Press</a></li>
-      <li><a href="#blog" class="mobile-nav-link">Blog</a></li>
-      <li><a href="#faqs" class="mobile-nav-link">FAQs</a></li>
-      <li><a href="#inquiries" class="mobile-nav-link" style="color: var(--color-accent); font-weight: 500;">Project Inquiries &rarr;</a></li>
-    </ul>
-
-    <div class="mobile-drawer-footer">
-      <p><strong>Bethany Adams Interiors</strong></p>
-      <p>942 S 2nd St, Louisville, KY 40203</p>
-      <p>Studio: <a href="tel:+15024094224">+1 (502) 409-4224</a></p>
-      <p style="margin-top: 1rem; font-size: 0.75rem; color: #888;">Women-Owned &bull; Nationally Published</p>
-    </div>
-  </aside>
-
-  <!-- Hero Section -->
-  <main id="home">
-    <section class="hero-section" aria-labelledby="heroHeading">
-      <div class="hero-container">
-
-        <!-- HERO LEFT: VERTICAL INFINITE SLIDERS -->
-        <div class="hero-gallery-wrapper" aria-label="Showcase Gallery" role="region">
-          
-          <!-- Column 1: Scrolls UP -->
-          <div class="slider-column">
-            <div class="slider-track slider-track-up" id="sliderCol1">
-              <div class="gallery-card">
-                <img src="images/bethany_dining_teal.jpg" alt="Cherokee Triangle dining room with bespoke mural" loading="eager" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Dining Salon</span>
-                  <span class="location">Cherokee Triangle</span>
-                </div>
-              </div>
-              <div class="gallery-card">
-                <img src="images/bethany_lounge_olive.jpg" alt="Old Louisville formal living with olive velvet seating" loading="eager" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Formal Living</span>
-                  <span class="location">Old Louisville</span>
-                </div>
-              </div>
-              <div class="gallery-card">
-                <img src="images/bethany_kitchen_walnut.jpg" alt="Glenview kitchen with custom plaster hood" loading="lazy" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Bespoke Kitchen</span>
-                  <span class="location">Glenview Manor</span>
-                </div>
-              </div>
-              <div class="gallery-card">
-                <img src="images/bethany_living_green.jpg" alt="Spring Branch living with contemporary art" loading="lazy" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Art Collection</span>
-                  <span class="location">Spring Branch</span>
-                </div>
-              </div>
-              <div class="gallery-card">
-                <img src="images/bethany_bath_marble.jpg" alt="Primary bathroom suite with Arabescato marble" loading="lazy" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Primary Suite</span>
-                  <span class="location">Mockingbird Valley</span>
-                </div>
-              </div>
-
-              <!-- Cloned loop set -->
-              <div class="gallery-card" aria-hidden="true">
-                <img src="images/bethany_dining_teal.jpg" alt="" loading="lazy" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Dining Salon</span>
-                  <span class="location">Cherokee Triangle</span>
-                </div>
-              </div>
-              <div class="gallery-card" aria-hidden="true">
-                <img src="images/bethany_lounge_olive.jpg" alt="" loading="lazy" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Formal Living</span>
-                  <span class="location">Old Louisville</span>
-                </div>
-              </div>
-              <div class="gallery-card" aria-hidden="true">
-                <img src="images/bethany_kitchen_walnut.jpg" alt="" loading="lazy" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Bespoke Kitchen</span>
-                  <span class="location">Glenview Manor</span>
-                </div>
-              </div>
-              <div class="gallery-card" aria-hidden="true">
-                <img src="images/bethany_living_green.jpg" alt="" loading="lazy" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Art Collection</span>
-                  <span class="location">Spring Branch</span>
-                </div>
-              </div>
-              <div class="gallery-card" aria-hidden="true">
-                <img src="images/bethany_bath_marble.jpg" alt="" loading="lazy" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Primary Suite</span>
-                  <span class="location">Mockingbird Valley</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Column 2: Scrolls DOWN (reverse) -->
-          <div class="slider-column">
-            <div class="slider-track slider-track-down" id="sliderCol2">
-              <div class="gallery-card">
-                <img src="images/bethany_library_white.jpg" alt="Library with custom arched millwork" loading="eager" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Library Study</span>
-                  <span class="location">Cherokee Park</span>
-                </div>
-              </div>
-              <div class="gallery-card">
-                <img src="images/bethany_pantry_blue.jpg" alt="Historic architectural butler pantry" loading="eager" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Butler's Pantry</span>
-                  <span class="location">Old Louisville</span>
-                </div>
-              </div>
-              <div class="gallery-card">
-                <img src="images/bethany_study_blue.jpg" alt="Victorian study with restored fireplace" loading="lazy" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Gentleman's Study</span>
-                  <span class="location">St. James Court</span>
-                </div>
-              </div>
-              <div class="gallery-card">
-                <img src="images/bethany_pink_fireplace.jpg" alt="Drawing room with blush fireplace mantel" loading="lazy" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Drawing Room</span>
-                  <span class="location">Highlands</span>
-                </div>
-              </div>
-              <div class="gallery-card">
-                <img src="images/project_kitchen_island.jpg" alt="Chef kitchen with black wood island" loading="lazy" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Chef's Kitchen</span>
-                  <span class="location">Anchorage, KY</span>
-                </div>
-              </div>
-
-              <!-- Cloned loop set -->
-              <div class="gallery-card" aria-hidden="true">
-                <img src="images/bethany_library_white.jpg" alt="" loading="lazy" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Library Study</span>
-                  <span class="location">Cherokee Park</span>
-                </div>
-              </div>
-              <div class="gallery-card" aria-hidden="true">
-                <img src="images/bethany_pantry_blue.jpg" alt="" loading="lazy" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Butler's Pantry</span>
-                  <span class="location">Old Louisville</span>
-                </div>
-              </div>
-              <div class="gallery-card" aria-hidden="true">
-                <img src="images/bethany_study_blue.jpg" alt="" loading="lazy" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Gentleman's Study</span>
-                  <span class="location">St. James Court</span>
-                </div>
-              </div>
-              <div class="gallery-card" aria-hidden="true">
-                <img src="images/bethany_pink_fireplace.jpg" alt="" loading="lazy" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Drawing Room</span>
-                  <span class="location">Highlands</span>
-                </div>
-              </div>
-              <div class="gallery-card" aria-hidden="true">
-                <img src="images/project_kitchen_island.jpg" alt="" loading="lazy" width="340" height="460">
-                <div class="gallery-card-badge">
-                  <span>Chef's Kitchen</span>
-                  <span class="location">Anchorage, KY</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- HERO RIGHT: HEADLINE, COPY & CTAS -->
-        <div class="hero-content">
-          
-          <div class="in-view-element delay-1 hero-eyebrow">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path></svg>
-            <span>Louisville, KY &bull; Architectural Interior Design</span>
-          </div>
-
-          <h1 class="in-view-element delay-2 hero-headline" id="heroHeading">
-            Stunning homes. <em>Lasting value.</em> <br>
-            <span class="highlight-accent">Details expertly managed.</span>
-          </h1>
-
-          <p class="in-view-element delay-3 hero-subhead">
-            For discerning homeowners throughout Louisville and beyond, your home should reflect a life well-lived—not an endless catalogue of unfinished decisions. We provide <strong>full-service, turnkey interior design</strong> that honors architectural character, curates bespoke furnishings, and oversees every craftsman and contractor from concept to unveiling.
-          </p>
-
-          <div class="in-view-element delay-4 hero-trust-grid">
-            <div class="trust-item">
-              <span class="trust-number">Old Louisville</span>
-              <span class="trust-label">Historic Studio</span>
-            </div>
-            <div class="trust-item">
-              <span class="trust-number">Turnkey</span>
-              <span class="trust-label">Full Execution</span>
-            </div>
-            <div class="trust-item">
-              <span class="trust-number">Women-Owned</span>
-              <span class="trust-label">Nationally Published</span>
-            </div>
-          </div>
-
-          <div class="in-view-element delay-5 hero-cta-group">
-            <!-- Primary CTA -->
-            <a href="#services" class="btn-primary-cta" id="heroServicesCta" aria-label="View our interior design services">
-              <span>View Our Services</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-
-            <!-- Secondary CTA -->
-            <a href="#inquiries" class="btn-secondary-cta" aria-label="Inquire about a new project">
-              <span>Project Inquiries</span>
-            </a>
-          </div>
-
-          <div class="in-view-element delay-5 studio-location-marker">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
-            <span>Studio: 942 S 2nd St, Louisville, KY 40203 &bull; Open M&ndash;F from 9:00 AM</span>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-  </main>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1. InView Animation Observer (Motion-Primitives)
-      const inViewElements = document.querySelectorAll('.in-view-element');
-      
-      if ('IntersectionObserver' in window) {
-        const inViewObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              observer.unobserve(entry.target);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bethany Adams Interiors | Louisville, KY</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        text: '#1f1d1a',
+                        bg: '#f4f4f6',
+                        primary: '#2e3b4e',
+                        secondary: '#e5e7ea',
+                        accent: '#9e3a26',
+                        accentHover: '#7a2b1c'
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
             }
-          });
-        }, {
-          threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px'
-        });
-
-        inViewElements.forEach(el => inViewObserver.observe(el));
-      } else {
-        inViewElements.forEach(el => el.classList.add('is-visible'));
-      }
-
-      // 2. Sticky Header Scroll Elevation
-      const siteHeader = document.getElementById('siteHeader');
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 30) {
-          siteHeader.classList.add('scrolled');
-        } else {
-          siteHeader.classList.remove('scrolled');
         }
-      }, { passive: true });
+    </script>
 
-      // 3. Mobile Navigation Drawer Controls
-      const menuToggle = document.getElementById('menuToggle');
-      const mobileDrawer = document.getElementById('mobileDrawer');
-      const drawerOverlay = document.getElementById('drawerOverlay');
-      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    <style>
+        /* Base Reset */
+        body {
+            background-color: #f4f4f6;
+            color: #1f1d1a;
+            overflow-x: hidden;
+        }
 
-      function toggleMobileMenu(open) {
-        const isOpen = open !== undefined ? open : !mobileDrawer.classList.contains('open');
-        menuToggle.classList.toggle('active', isOpen);
-        mobileDrawer.classList.toggle('open', isOpen);
-        drawerOverlay.classList.toggle('visible', isOpen);
+        /* Infinite Scroller Settings */
+        .scroller-wrapper {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            /* Fade top and bottom edges for a seamless look */
+            mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+        }
+
+        .scroller-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            min-height: 200%;
+        }
+
+        .scroll-up {
+            animation: scrollUp 30s linear infinite;
+        }
+
+        .scroll-down {
+            animation: scrollDown 30s linear infinite;
+        }
+
+        /* Hover pauses the animation for better UX */
+        .scroller-wrapper:hover .scroll-up,
+        .scroller-wrapper:hover .scroll-down {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollUp {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+
+        @keyframes scrollDown {
+            0% { transform: translateY(-50%); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Image styling inside scroller */
+        .scroller-column img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        /* Reveal Animation Classes */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(100px);
+            filter: blur(4px);
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out, filter 0.8s ease-in-out;
+            will-change: opacity, transform, filter;
+        }
+
+        .reveal-element.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        /* Hide scrollbar for nav on mobile */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-accent selection:text-white">
+
+    <header class="sticky top-0 z-50 w-full bg-bg/95 backdrop-blur-sm border-b border-secondary/50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex-shrink-0 z-20">
+                <h1 class="font-serif text-2xl md:text-3xl font-medium tracking-wide text-text">
+                    Bethany Adams<br/>
+                    <span class="text-lg md:text-xl text-primary/80 italic">Interiors</span>
+                </h1>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="#" class="text-sm uppercase tracking-widest font-medium text-text/70 hover:text-accent transition-colors duration-200">About</a>
+                <a href="#" class="text-sm uppercase tracking-widest font-medium text-text/70 hover:text-accent transition-colors duration-200">Portfolio</a>
+                <a href="#" class="text-sm uppercase tracking-widest font-medium text-text/70 hover:text-accent transition-colors duration-200">Services</a>
+                <a href="#" class="text-sm uppercase tracking-widest font-medium text-text/70 hover:text-accent transition-colors duration-200">Press</a>
+                <a href="#" class="text-sm uppercase tracking-widest font-medium text-text/70 hover:text-accent transition-colors duration-200">Blog</a>
+                <a href="#" class="text-sm uppercase tracking-widest font-medium text-text/70 hover:text-accent transition-colors duration-200">FAQs</a>
+                <a href="#" class="text-sm uppercase tracking-widest font-medium text-accent border-b border-accent pb-1 hover:text-accentHover hover:border-accentHover transition-colors duration-200">Project Inquiries</a>
+            </nav>
+
+            <!-- Mobile Menu Scrollable Fallback -->
+            <nav class="lg:hidden flex overflow-x-auto no-scrollbar space-x-6 w-full pl-6 mask-image mask-fade-right">
+                 <a href="#" class="text-xs uppercase tracking-widest font-medium text-text whitespace-nowrap">About</a>
+                 <a href="#" class="text-xs uppercase tracking-widest font-medium text-text whitespace-nowrap">Portfolio</a>
+                 <a href="#" class="text-xs uppercase tracking-widest font-medium text-text whitespace-nowrap">Services</a>
+                 <a href="#" class="text-xs uppercase tracking-widest font-medium text-accent whitespace-nowrap">Inquiries</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="relative w-full max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
         
-        menuToggle.setAttribute('aria-expanded', isOpen);
-        mobileDrawer.setAttribute('aria-hidden', !isOpen);
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-      }
+        <!-- Left Side: Visuals (Infinite Slider) -->
+        <div class="w-full lg:w-1/2 scroller-wrapper bg-secondary/20 rounded-xl p-4 flex gap-4 border border-secondary/50 shadow-inner">
+            
+            <!-- Column 1: Scrolling Up -->
+            <div class="w-1/2 scroller-column scroll-up">
+                <!-- Set 1 -->
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800&auto=format&fit=crop" alt="Elegant living room interior" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=800&auto=format&fit=crop" alt="Modern kitchen design" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop" alt="Luxurious bedroom setting" loading="lazy" />
+                
+                <!-- Set 1 Duplicate (Crucial for seamless infinite loop at -50% translation) -->
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800&auto=format&fit=crop" alt="Elegant living room interior" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=800&auto=format&fit=crop" alt="Modern kitchen design" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop" alt="Luxurious bedroom setting" loading="lazy" />
+            </div>
 
-      menuToggle.addEventListener('click', () => toggleMobileMenu());
-      drawerOverlay.addEventListener('click', () => toggleMobileMenu(false));
+            <!-- Column 2: Scrolling Down -->
+            <div class="w-1/2 scroller-column scroll-down">
+                <!-- Set 2 -->
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=800&auto=format&fit=crop" alt="Bespoke cabinetry details" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop" alt="Architectural dining room" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=800&auto=format&fit=crop" alt="High-end lighting fixture" loading="lazy" />
+                
+                <!-- Set 2 Duplicate (Crucial for seamless infinite loop at -50% translation) -->
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=800&auto=format&fit=crop" alt="Bespoke cabinetry details" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop" alt="Architectural dining room" loading="lazy" />
+                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=800&auto=format&fit=crop" alt="High-end lighting fixture" loading="lazy" />
+            </div>
 
-      mobileNavLinks.forEach(link => {
-        link.addEventListener('click', () => toggleMobileMenu(false));
-      });
+        </div>
 
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) {
-          toggleMobileMenu(false);
-          menuToggle.focus();
-        }
-      });
-    });
-  </script>
+        <!-- Right Side: Text & CTA -->
+        <div class="w-full lg:w-1/2 flex flex-col justify-center text-left py-8 lg:py-0 reveal-element" id="hero-text-container">
+            <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-text mb-6">
+                Timeless Elegance.<br/>
+                <span class="italic font-light text-primary">Details Expertly Managed.</span>
+            </h1>
+            
+            <p class="font-sans text-lg md:text-xl text-text/80 leading-relaxed mb-10 max-w-lg font-light">
+                For discerning homeowners in Louisville and throughout Kentucky, your home should reflect a life well-lived, not a list of unfinished decisions. We manage every detail—from concept to installation, delivering an extraordinary result without the stress.
+            </p>
+
+            <div>
+                <a href="#" class="inline-flex items-center justify-center bg-accent text-white font-sans text-sm tracking-[0.2em] uppercase font-semibold px-10 py-5 rounded-sm hover:bg-accentHover hover:shadow-lg transition-all duration-300 group">
+                    View Our Services
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-3 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Configuration for the observer
+            const observerOptions = {
+                root: null, // use viewport
+                rootMargin: '0px 0px -100px 0px', // Trigger slightly before the bottom of viewport
+                threshold: 0.1 // Trigger when 10% is visible
+            };
+
+            // Callback to run when intersection triggers
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add the visibility class
+                        entry.target.classList.add('is-visible');
+                        // Unobserve after animating once for better performance
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            // Initialize Observer
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            // Target elements to animate
+            const targetElement = document.getElementById('hero-text-container');
+            
+            if(targetElement) {
+                // Short delay ensures the browser has rendered initial state before applying observer,
+                // guaranteeing the animation is seen on fresh load.
+                setTimeout(() => {
+                    observer.observe(targetElement);
+                }, 100);
+            }
+        });
+    </script>
 </body>
 </html>
